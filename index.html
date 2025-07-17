@@ -194,6 +194,7 @@
 <body>
   <div class="title">Ethereal Online Earning Platform</div>
   <h1>Ethereal Website</h1>
+  <h1 id="referral-msg">Welcome to our site!</h1>
   <p class="description">Earn when ever you are online,Ethereal Website works for all countries</p>
 
   <form id="signupForm">
@@ -280,6 +281,16 @@
 
     showNextChat();
     setInterval(showNextChat, 8000);
+
+    // Get the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+
+    // If ref exists, show the message
+    if (ref) {
+      document.getElementById('referral-msg').textContent = `You were referred by ${ref}`;
+    }
+    
   </script>
 </body>
 </html>
